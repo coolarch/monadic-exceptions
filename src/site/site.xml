@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd"
+
+
+>
+<!--
+  <bannerLeft>
+    <name/>
+    <src/>
+    <alt/>
+    <href/>
+    <border/>
+    <width/>
+    <height/>
+    <title/>
+  </bannerLeft>
+  <bannerRight>
+    <name/>
+    <src/>
+    <alt/>
+    <href/>
+    <border/>
+    <width/>
+    <height/>
+    <title/>
+  </bannerRight>
+  <googleAdSenseClient/>
+  <googleAdSenseSlot/>
+  <googleAnalyticsAccountId/>
+
+  <publishDate position=.. format=.. />
+  <version position=.. />
+  <poweredBy>
+    <logo name=.. href=.. img=.. position=.. alt=.. border=.. width=.. height=.. target=.. title=.. />
+  </poweredBy>
+  
+  
+  
+-->
+
+    <publishDate position="none" />
+  <version position="none" />
+
+
+	<skin>
+		<groupId>lt.velykis.maven.skins</groupId>
+		<artifactId>reflow-maven-skin</artifactId>
+		<version>1.1.1</version>
+	</skin>
+  <body>
+  
+    <head/>
+    <breadcrumbs>
+      <item name="Home" href="index.html" />
+    </breadcrumbs>
+    
+<menu name="Main" inherit="top">
+      <item name="Home" href="./" />
+      <item name="GitHub project" href="https://github.com/coolarch/stateroom/" />
+    </menu>
+    <menu name="Download" inherit="top">
+      <item name="Download" href="download.html" />
+      <item name="License" href="license.html" />
+    </menu>
+    <menu name="Contribute" inherit="bottom">
+      <item name="Contribute" href="contribute.html" />
+      <item name="Issues" href="https://github.com/coolarch/stateroom/issues/" />
+      <item name="Fork on GitHub" href="https://github.com/coolarch/stateroom/" />
+    </menu>
+    <menu name="Maven documentation" ref="reports" inherit="bottom"/>    
+<footer>CoolArch, All rights reserved.</footer>
+  </body>
+
+  
+  <custom>
+    <reflowSkin>
+      <theme>bootswatch-united</theme>
+      <highlightJs>true</highlightJs>
+      <brand>
+        <name>Stateroom</name>
+        <href>http://www.arch.cool/stateroom</href>
+      </brand>
+      <slogan>Simple. Immutable. Fluent.</slogan>
+      <titleTemplate>%2$s | %1$s</titleTemplate>
+      <toc>sidebar</toc>
+      <topNav>Download|reports</topNav>
+      <bottomNav>
+        <column>Main|Download</column>
+        <column>Documentation</column>
+        <column>reports|modules</column>
+      </bottomNav>
+      <bottomDescription>
+        Simple. Immutable. Fluent.
+      </bottomDescription>
+      <pages>
+        <index> <!--  project="stateroom" -->
+          <shortTitle>Welcome</shortTitle>
+          <breadcrumbs>false</breadcrumbs>
+          <toc>false</toc>
+          <sections>
+            <carousel />
+            <body />
+            <sidebar />
+            <thumbs>2</thumbs>
+            <columns>3</columns>
+          </sections>
+        </index>
+        <developer-info>
+          <toc>sidebar</toc>
+        </developer-info>
+        <license>
+          <highlightJs>false</highlightJs>
+          <toc>false</toc>
+        </license>
+      </pages>
+      <skinAttribution>false</skinAttribution>
+    </reflowSkin>
+  </custom>
+
+</project>

@@ -16,14 +16,14 @@ package cool.arch.monadic.exceptions.function;
 import java.io.IOException;
 import java.util.function.ToLongFunction;
 
-import cool.arch.monadic.exceptions.MonadicException;
+import cool.arch.monadic.exceptions.Wrap;
 
 public class ThrowableToLongFunctionTest extends
 	AbstractLambdaTest<ThrowableToLongFunction<String>, ToLongFunction<String>> {
 
 	@SuppressWarnings("boxing")
 	public ThrowableToLongFunctionTest() {
-		super(lambda -> lambda.applyAsLong("123") == 123L, MonadicException::wrapAsToLongFunction, s -> {
+		super(lambda -> lambda.applyAsLong("123") == 123L, Wrap::asToLongFunction, s -> {
 			throw new IOException();
 		}, s -> Long.valueOf(s));
 	}

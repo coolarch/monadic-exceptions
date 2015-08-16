@@ -1,4 +1,4 @@
-package cool.arch.monadic.exceptions;
+package cool.arch.monadic.exceptions.function;
 
 /*
  * #%L cool.arch.monadicexceptions:monadic-exceptions %% Copyright (C) 2015 CoolArch %%
@@ -13,20 +13,30 @@ package cool.arch.monadic.exceptions;
  * and limitations under the License. #L%
  */
 
-public class MonadicException extends RuntimeException {
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BiConsumer;
+import org.junit.Before;
 
-	private static final long serialVersionUID = 650942982495284918L;
+import cool.arch.monadic.exceptions.Wrap;
 
-	private final Monad<Throwable> monad;
+public class ThrowableBiConsumerTest extends AbstractLambdaTest<ThrowableBiConsumer<String,String>, BiConsumer<String,String>> {
 
-	public MonadicException(Throwable cause) {
-		super(cause);
-		monad = AbstractMonad.of(cause);
+	private static final AtomicReference<String> captured0 = new AtomicReference<>();
+
+	private static final AtomicReference<String> captured1 = new AtomicReference<>();
+
+	@Before
+	public void setup() {
+		captured0.set(null);
+		captured1.set(null);
 	}
 
-	@SuppressWarnings("unchecked")
-	public <T extends Throwable> Monad<T> when(final Class<T> throwableClass) {
-		return (Monad<T>) monad.filter(e -> e.getClass()
-			.isAssignableFrom(throwableClass));
+	public ThrowableBiConsumerTest() {
+		super(
+			lambda -> {lambda.accept("foo", "bar"); return "foo".equals(captured0.get()) && "bar".equals(captured1.get()); },
+		Wrap::asBiConsumer,
+		(t,u) -> { throw new IOException(); },
+		(t,u) -> { captured0.set(t); captured1.set(u); });
 	}
 }

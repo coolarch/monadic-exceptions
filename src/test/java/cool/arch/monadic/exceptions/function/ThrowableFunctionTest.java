@@ -19,13 +19,13 @@ package cool.arch.monadic.exceptions.function;
 import java.io.IOException;
 import java.util.function.Function;
 
-import cool.arch.monadic.exceptions.MonadicException;
+import cool.arch.monadic.exceptions.Wrap;
 
 public class ThrowableFunctionTest extends
 	AbstractLambdaTest<ThrowableFunction<String, String>, Function<String, String>> {
 
 	public ThrowableFunctionTest() {
-		super(lambda -> "foo".equals(lambda.apply("foo")), MonadicException::wrapAsFunction, s -> {
+		super(lambda -> "foo".equals(lambda.apply("foo")), Wrap::asFunction, s -> {
 			throw new IOException();
 		}, s -> s);
 	}

@@ -14,13 +14,17 @@ package cool.arch.monadic.exceptions.function;
  */
 
 import static java.util.Objects.requireNonNull;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import cool.arch.monadic.exceptions.MonadicException;
@@ -37,10 +41,34 @@ public abstract class AbstractLambdaTest<TF, F> {
 
 	protected AbstractLambdaTest(final Predicate<F> predicate, final Function<TF, F> invoker, final TF thrower,
 		final TF identity) {
+
 		this.predicate = requireNonNull(predicate, "predicate shall not be null");
 		this.invoker = requireNonNull(invoker, "invoker shall not be null");
 		this.thrower = requireNonNull(thrower, "thrower shall not be null");
 		this.identity = requireNonNull(identity, "identity shall not be null");
+	}
+
+	@Test
+	public final void testCorrectTypes() {
+		final String simpleClassName = getClass().getSimpleName();
+		final String expectedThrowableLambdaName = simpleClassName.replace("Test", "");
+		final String expectedLambdaName = expectedThrowableLambdaName.replace("Throwable", "");
+
+		final Type[] types = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments();
+
+		assertEquals(2, types.length);
+
+		final String actualParameter0Name = types[0].getTypeName();
+		final String actualParameter1Name = types[1].getTypeName();
+
+		final String simplifiedActualParameterName0 = actualParameter0Name.replaceAll("<.*>", "")
+			.replaceAll("^.*\\.", "");
+
+		final String simplifiedActualParameterName1 = actualParameter1Name.replaceAll("<.*>", "")
+			.replaceAll("^.*\\.", "");
+
+		assertEquals(expectedThrowableLambdaName, simplifiedActualParameterName0);
+		assertEquals(expectedLambdaName, simplifiedActualParameterName1);
 	}
 
 	@Test

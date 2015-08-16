@@ -16,12 +16,12 @@ package cool.arch.monadic.exceptions.function;
 import java.io.IOException;
 import java.util.function.Predicate;
 
-import cool.arch.monadic.exceptions.MonadicException;
+import cool.arch.monadic.exceptions.Wrap;
 
 public class ThrowablePredicateTest extends AbstractLambdaTest<ThrowablePredicate<String>, Predicate<String>> {
 
 	public ThrowablePredicateTest() {
-		super(lambda -> lambda.test("foo"), MonadicException::wrapAsPredicate, s -> {
+		super(lambda -> lambda.test("foo"), Wrap::asPredicate, s -> {
 			throw new IOException();
 		}, s -> s.equals("foo"));
 	}

@@ -1,4 +1,4 @@
-package cool.arch.monadic.exceptions;
+package cool.arch.monadic.exceptions.function;
 
 /*
  * #%L cool.arch.monadicexceptions:monadic-exceptions %% Copyright (C) 2015 CoolArch %%
@@ -13,20 +13,28 @@ package cool.arch.monadic.exceptions;
  * and limitations under the License. #L%
  */
 
-public class MonadicException extends RuntimeException {
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
 
-	private static final long serialVersionUID = 650942982495284918L;
+import org.junit.Before;
 
-	private final Monad<Throwable> monad;
+import cool.arch.monadic.exceptions.Wrap;
 
-	public MonadicException(Throwable cause) {
-		super(cause);
-		monad = AbstractMonad.of(cause);
+public class ThrowableConsumerTest extends AbstractLambdaTest<ThrowableConsumer<String>, Consumer<String>> {
+	
+	private static final AtomicReference<String> captured = new AtomicReference<>();
+
+	@Before
+	public void setup() {
+		captured.set(null);
 	}
 
-	@SuppressWarnings("unchecked")
-	public <T extends Throwable> Monad<T> when(final Class<T> throwableClass) {
-		return (Monad<T>) monad.filter(e -> e.getClass()
-			.isAssignableFrom(throwableClass));
+	public ThrowableConsumerTest() {
+		super(
+			lambda -> {lambda.accept("foo"); return "foo".equals(captured.get()); },
+		Wrap::asConsumer,
+		s -> { throw new IOException(); },
+		s -> captured.set(s));
 	}
 }

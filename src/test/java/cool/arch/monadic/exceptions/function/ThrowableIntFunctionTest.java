@@ -1,4 +1,4 @@
-package cool.arch.monadic.exceptions;
+package cool.arch.monadic.exceptions.function;
 
 /*
  * #%L cool.arch.monadicexceptions:monadic-exceptions %% Copyright (C) 2015 CoolArch %%
@@ -13,20 +13,15 @@ package cool.arch.monadic.exceptions;
  * and limitations under the License. #L%
  */
 
-public class MonadicException extends RuntimeException {
+import java.io.IOException;
+import java.util.function.IntFunction;
+import cool.arch.monadic.exceptions.Wrap;
 
-	private static final long serialVersionUID = 650942982495284918L;
+public class ThrowableIntFunctionTest extends AbstractLambdaTest<ThrowableIntFunction<String>, IntFunction<String>> {
 
-	private final Monad<Throwable> monad;
-
-	public MonadicException(Throwable cause) {
-		super(cause);
-		monad = AbstractMonad.of(cause);
-	}
-
-	@SuppressWarnings("unchecked")
-	public <T extends Throwable> Monad<T> when(final Class<T> throwableClass) {
-		return (Monad<T>) monad.filter(e -> e.getClass()
-			.isAssignableFrom(throwableClass));
+	public ThrowableIntFunctionTest() {
+		super(lambda -> "31337".equals(lambda.apply(31337)), Wrap::asIntFunction, s -> {
+			throw new IOException();
+		}, s -> Integer.toString(s));
 	}
 }

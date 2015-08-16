@@ -1,4 +1,4 @@
-package cool.arch.monadic.exceptions;
+package cool.arch.monadic.exceptions.function;
 
 /*
  * #%L cool.arch.monadicexceptions:monadic-exceptions %% Copyright (C) 2015 CoolArch %%
@@ -13,20 +13,17 @@ package cool.arch.monadic.exceptions;
  * and limitations under the License. #L%
  */
 
-public class MonadicException extends RuntimeException {
+import java.io.IOException;
+import java.util.function.BiFunction;
+import cool.arch.monadic.exceptions.Wrap;
 
-	private static final long serialVersionUID = 650942982495284918L;
+public class ThrowableBiFunctionTest extends AbstractLambdaTest<ThrowableBiFunction<String,String,String>, BiFunction<String,String,String>> {
 
-	private final Monad<Throwable> monad;
-
-	public MonadicException(Throwable cause) {
-		super(cause);
-		monad = AbstractMonad.of(cause);
-	}
-
-	@SuppressWarnings("unchecked")
-	public <T extends Throwable> Monad<T> when(final Class<T> throwableClass) {
-		return (Monad<T>) monad.filter(e -> e.getClass()
-			.isAssignableFrom(throwableClass));
+	public ThrowableBiFunctionTest() {
+		super(
+			lambda -> "foobar".equals(lambda.apply("foo", "bar")),
+		Wrap::asBiFunction,
+		(t,u) -> { throw new IOException(); },
+		(t,u) -> t + u);
 	}
 }

@@ -1,4 +1,4 @@
-package cool.arch.monadic.exceptions;
+package cool.arch.monadic.exceptions.function;
 
 /*
  * #%L cool.arch.monadicexceptions:monadic-exceptions %% Copyright (C) 2015 CoolArch %%
@@ -13,20 +13,22 @@ package cool.arch.monadic.exceptions;
  * and limitations under the License. #L%
  */
 
-public class MonadicException extends RuntimeException {
+import java.io.IOException;
+import java.util.function.ObjDoubleConsumer;
 
-	private static final long serialVersionUID = 650942982495284918L;
+import cool.arch.monadic.exceptions.Wrap;
 
-	private final Monad<Throwable> monad;
+public class ThrowableObjDoubleConsumerTest extends
 
-	public MonadicException(Throwable cause) {
-		super(cause);
-		monad = AbstractMonad.of(cause);
-	}
+AbstractLambdaTest<ThrowableObjDoubleConsumer<String>, ObjDoubleConsumer<String>> {
 
-	@SuppressWarnings("unchecked")
-	public <T extends Throwable> Monad<T> when(final Class<T> throwableClass) {
-		return (Monad<T>) monad.filter(e -> e.getClass()
-			.isAssignableFrom(throwableClass));
+	public ThrowableObjDoubleConsumerTest() {
+		super(lambda -> {
+			lambda.accept("1.5", 1.5);
+			return true;
+		}, Wrap::asObjDoubleConsumer, (o, l) -> {
+			throw new IOException();
+		}, (o, l) -> {
+		});
 	}
 }

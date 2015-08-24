@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>cool.arch.infrastructure</groupId>
 		<artifactId>base-pom</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<groupId>cool.arch.monadicexceptions</groupId>
 	<artifactId>monadic-exceptions</artifactId>
@@ -19,6 +19,7 @@
 		<lib.junit.version>4.12</lib.junit.version>
 		<lib.mockito.version>1.7</lib.mockito.version>
 		<github.global.server>github</github.global.server>
+		<infrastructure.plugin.license.id>mit</infrastructure.plugin.license.id>
 	</properties>
 	<scm>
 		<connection>scm:git:https://github.com/coolarch/monadic-exceptions.git</connection>

@@ -31,8 +31,14 @@ import java.util.function.IntConsumer;
 
 import cool.arch.monadicexceptions.ThrowableIntConsumer;
 
+/**
+ * 
+ */
 public class ThrowableIntConsumerTest extends AbstractLambdaTest<ThrowableIntConsumer, IntConsumer> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntConsumerTest() {
 		super(lambda -> {
 			lambda.accept(31337);

@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.IntUnaryOperator;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableIntUnaryOperator {
 
+	/**
+	 * @param operand
+	 * @return
+	 * @throws Exception
+	 */
 	int applyAsInt(int operand) throws Exception;
 
+	/**
+	 * @param operator
+	 * @return
+	 */
 	public static IntUnaryOperator asIntUnaryOperator(final ThrowableIntUnaryOperator operator) {
 		return t -> {
 			int result;

@@ -28,11 +28,24 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.IntBinaryOperator;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableIntBinaryOperator {
 
+	/**
+	 * @param left
+	 * @param right
+	 * @return
+	 * @throws Exception
+	 */
 	int applyAsInt(int left, int right) throws Exception;
 
+	/**
+	 * @param operator
+	 * @return
+	 */
 	public static IntBinaryOperator asIntBinaryOperator(final ThrowableIntBinaryOperator operator) {
 		return (t, u) -> {
 			int result;

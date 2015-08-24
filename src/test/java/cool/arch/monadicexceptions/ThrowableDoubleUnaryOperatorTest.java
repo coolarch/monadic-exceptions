@@ -31,8 +31,14 @@ import java.util.function.DoubleUnaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableDoubleUnaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableDoubleUnaryOperatorTest extends AbstractLambdaTest<ThrowableDoubleUnaryOperator, DoubleUnaryOperator> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoubleUnaryOperatorTest() {
 		super(lambda -> lambda.applyAsDouble(1.5D) == 1.5D, ThrowableDoubleUnaryOperator::asDoubleUnaryOperator, s -> {
 			throw new IOException();

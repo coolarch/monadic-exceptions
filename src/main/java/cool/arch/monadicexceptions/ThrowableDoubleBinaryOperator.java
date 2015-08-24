@@ -28,11 +28,24 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleBinaryOperator;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoubleBinaryOperator {
 
+	/**
+	 * @param left
+	 * @param right
+	 * @return
+	 * @throws Exception
+	 */
 	double applyAsDouble(double left, double right) throws Exception;
 
+	/**
+	 * @param operator
+	 * @return
+	 */
 	public static DoubleBinaryOperator asDoubleBinaryOperator(final ThrowableDoubleBinaryOperator operator) {
 		return (t, u) -> {
 			double result;

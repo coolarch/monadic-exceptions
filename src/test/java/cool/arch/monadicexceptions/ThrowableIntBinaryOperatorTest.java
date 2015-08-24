@@ -31,8 +31,14 @@ import java.util.function.IntBinaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableIntBinaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableIntBinaryOperatorTest extends AbstractLambdaTest<ThrowableIntBinaryOperator, IntBinaryOperator> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntBinaryOperatorTest() {
 		super(lambda -> lambda.applyAsInt(1, 2) == 3, ThrowableIntBinaryOperator::asIntBinaryOperator, (t, u) -> {
 			throw new IOException();

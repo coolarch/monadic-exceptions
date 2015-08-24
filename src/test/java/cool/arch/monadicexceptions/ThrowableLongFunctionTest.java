@@ -31,8 +31,14 @@ import java.util.function.LongFunction;
 
 import cool.arch.monadicexceptions.ThrowableLongFunction;
 
+/**
+ * 
+ */
 public class ThrowableLongFunctionTest extends AbstractLambdaTest<ThrowableLongFunction<String>, LongFunction<String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongFunctionTest() {
 		super(lambda -> "31337".equals(lambda.apply(31337L)), ThrowableLongFunction::asLongFunction, s -> {
 			throw new IOException();

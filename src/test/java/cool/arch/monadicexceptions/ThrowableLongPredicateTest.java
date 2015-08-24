@@ -31,8 +31,14 @@ import java.util.function.LongPredicate;
 
 import cool.arch.monadicexceptions.ThrowableLongPredicate;
 
+/**
+ * 
+ */
 public class ThrowableLongPredicateTest extends AbstractLambdaTest<ThrowableLongPredicate, LongPredicate> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongPredicateTest() {
 		super(lambda -> lambda.test(31337L), ThrowableLongPredicate::asLongPredicate, s -> {
 			throw new IOException();

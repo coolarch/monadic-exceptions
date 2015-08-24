@@ -28,11 +28,26 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.BiFunction;
 
+/**
+ * @param <T>
+ * @param <U>
+ * @param <R>
+ */
 @FunctionalInterface
 public interface ThrowableBiFunction<T, U, R> {
 
+	/**
+	 * @param t
+	 * @param u
+	 * @return
+	 * @throws Exception
+	 */
 	R apply(T t, U u) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T, U, R> BiFunction<T, U, R> asBiFunction(final ThrowableBiFunction<T, U, R> function) {
 		return (t, u) -> {
 			R result = null;

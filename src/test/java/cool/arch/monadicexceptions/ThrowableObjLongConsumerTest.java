@@ -33,14 +33,18 @@ import java.util.function.ObjLongConsumer;
 
 import cool.arch.monadicexceptions.ThrowableObjLongConsumer;
 
-public class ThrowableObjLongConsumerTest extends
-
-AbstractLambdaTest<ThrowableObjLongConsumer<String>, ObjLongConsumer<String>> {
+/**
+ * 
+ */
+public class ThrowableObjLongConsumerTest extends AbstractLambdaTest<ThrowableObjLongConsumer<String>, ObjLongConsumer<String>> {
 
 	private static final AtomicReference<String> param0 = new AtomicReference<>();
 
 	private static final AtomicLong param1 = new AtomicLong();
 
+	/**
+	 * 
+	 */
 	public ThrowableObjLongConsumerTest() {
 		super(lambda -> {
 			lambda.accept("123", 123L);

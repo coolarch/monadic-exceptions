@@ -26,17 +26,27 @@ package cool.arch.monadicexceptions;
  * @formatter:on
  */
 
+/**
+ * 
+ */
 public class MonadicException extends RuntimeException {
 
 	private static final long serialVersionUID = 650942982495284918L;
 
 	private final Monad<Throwable> monad;
 
+	/**
+	 * @param cause
+	 */
 	public MonadicException(Throwable cause) {
 		super(cause);
 		monad = AbstractMonad.of(cause);
 	}
 
+	/**
+	 * @param throwableClass
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Throwable> Monad<T> when(final Class<T> throwableClass) {
 		return (Monad<T>) monad.filter(e -> e.getClass()

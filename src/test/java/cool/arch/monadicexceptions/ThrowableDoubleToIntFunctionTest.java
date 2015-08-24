@@ -31,8 +31,14 @@ import java.util.function.DoubleToIntFunction;
 
 import cool.arch.monadicexceptions.ThrowableDoubleToIntFunction;
 
+/**
+ * 
+ */
 public class ThrowableDoubleToIntFunctionTest extends AbstractLambdaTest<ThrowableDoubleToIntFunction, DoubleToIntFunction> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoubleToIntFunctionTest() {
 		super(lambda -> lambda.applyAsInt(31337D) == 31337, ThrowableDoubleToIntFunction::asDoubleToIntFunction, d -> {
 			throw new IOException();

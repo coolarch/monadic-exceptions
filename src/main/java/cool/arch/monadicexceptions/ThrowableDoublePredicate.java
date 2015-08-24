@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoublePredicate;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoublePredicate {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	boolean test(double value) throws Exception;
 
+	/**
+	 * @param predicate
+	 * @return
+	 */
 	public static DoublePredicate asDoublePredicate(final ThrowableDoublePredicate predicate) {
 		return t -> {
 			boolean result = false;

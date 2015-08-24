@@ -31,8 +31,14 @@ import java.util.function.DoubleConsumer;
 
 import cool.arch.monadicexceptions.ThrowableDoubleConsumer;
 
+/**
+ * 
+ */
 public class ThrowableDoubleConsumerTest extends AbstractLambdaTest<ThrowableDoubleConsumer, DoubleConsumer> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoubleConsumerTest() {
 		super(lambda -> {
 			lambda.accept(1.23D);

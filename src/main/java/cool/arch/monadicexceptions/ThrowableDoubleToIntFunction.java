@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleToIntFunction;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoubleToIntFunction {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	int applyAsInt(double value) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static DoubleToIntFunction asDoubleToIntFunction(final ThrowableDoubleToIntFunction function) {
 		return t -> {
 			int result;

@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleUnaryOperator;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoubleUnaryOperator {
 
+	/**
+	 * @param operand
+	 * @return
+	 * @throws Exception
+	 */
 	double applyAsDouble(double operand) throws Exception;
 
+	/**
+	 * @param operator
+	 * @return
+	 */
 	public static DoubleUnaryOperator asDoubleUnaryOperator(final ThrowableDoubleUnaryOperator operator) {
 		return t -> {
 			double result;

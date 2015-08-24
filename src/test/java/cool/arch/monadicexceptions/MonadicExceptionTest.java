@@ -50,6 +50,7 @@ public class MonadicExceptionTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.MonadicException.AbstractMonad#unwrapAs(java.lang.Class)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testUnwrapAs_nullCause() throws Exception {
@@ -62,6 +63,7 @@ public class MonadicExceptionTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.MonadicException.AbstractMonad#unwrapAs(java.lang.Class)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testUnwrapAs_nullExceptionClass() throws Exception {

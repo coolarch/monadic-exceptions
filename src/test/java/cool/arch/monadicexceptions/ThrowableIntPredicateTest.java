@@ -31,8 +31,14 @@ import java.util.function.IntPredicate;
 
 import cool.arch.monadicexceptions.ThrowableIntPredicate;
 
+/**
+ * 
+ */
 public class ThrowableIntPredicateTest extends AbstractLambdaTest<ThrowableIntPredicate, IntPredicate> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntPredicateTest() {
 		super(lambda -> lambda.test(31337), ThrowableIntPredicate::asIntPredicate, s -> {
 			throw new IOException();

@@ -28,11 +28,24 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.Function;
 
+/**
+ * @param <T>
+ * @param <R>
+ */
 @FunctionalInterface
 public interface ThrowableFunction<T, R> {
 
+	/**
+	 * @param t
+	 * @return
+	 * @throws Exception
+	 */
 	R apply(T t) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T, R> Function<T, R> asFunction(final ThrowableFunction<T, R> function) {
 		return t -> {
 			R result = null;

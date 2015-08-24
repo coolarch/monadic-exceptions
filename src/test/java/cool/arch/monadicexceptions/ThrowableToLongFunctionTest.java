@@ -31,8 +31,14 @@ import java.util.function.ToLongFunction;
 
 import cool.arch.monadicexceptions.ThrowableToLongFunction;
 
+/**
+ * 
+ */
 public class ThrowableToLongFunctionTest extends AbstractLambdaTest<ThrowableToLongFunction<String>, ToLongFunction<String>> {
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("boxing")
 	public ThrowableToLongFunctionTest() {
 		super(lambda -> lambda.applyAsLong("123") == 123L, ThrowableToLongFunction::asToLongFunction, s -> {

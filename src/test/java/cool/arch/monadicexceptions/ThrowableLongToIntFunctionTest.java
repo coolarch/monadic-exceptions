@@ -31,8 +31,14 @@ import java.util.function.LongToIntFunction;
 
 import cool.arch.monadicexceptions.ThrowableLongToIntFunction;
 
+/**
+ * 
+ */
 public class ThrowableLongToIntFunctionTest extends AbstractLambdaTest<ThrowableLongToIntFunction, LongToIntFunction> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongToIntFunctionTest() {
 		super(lambda -> {
 			return lambda.applyAsInt(31337L) == 31337;

@@ -28,11 +28,22 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.IntSupplier;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableIntSupplier {
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	int getAsInt() throws Exception;
 
+	/**
+	 * @param supplier
+	 * @return
+	 */
 	public static IntSupplier asIntSupplier(final ThrowableIntSupplier supplier) {
 		return () -> {
 			int result;

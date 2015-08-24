@@ -28,11 +28,25 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.ToLongBiFunction;
 
+/**
+ * @param <T>
+ * @param <U>
+ */
 @FunctionalInterface
 public interface ThrowableToLongBiFunction<T, U> {
 
+	/**
+	 * @param t
+	 * @param u
+	 * @return
+	 * @throws Exception
+	 */
 	long applyAsLong(T t, U u) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T, U> ToLongBiFunction<T, U> asToLongBiFunction(final ThrowableToLongBiFunction<T, U> function) {
 		return (t, u) -> {
 			long result;

@@ -31,8 +31,14 @@ import java.util.function.ToLongBiFunction;
 
 import cool.arch.monadicexceptions.ThrowableToLongBiFunction;
 
+/**
+ * 
+ */
 public class ThrowableToLongBiFunctionTest extends AbstractLambdaTest<ThrowableToLongBiFunction<String, String>, ToLongBiFunction<String, String>> {
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("boxing")
 	public ThrowableToLongBiFunctionTest() {
 		super(lambda -> lambda.applyAsLong("123", "456") == (123L + 456L), ThrowableToLongBiFunction::asToLongBiFunction, (t, u) -> {

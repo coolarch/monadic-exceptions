@@ -31,8 +31,14 @@ import java.util.function.LongUnaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableLongUnaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableLongUnaryOperatorTest extends AbstractLambdaTest<ThrowableLongUnaryOperator, LongUnaryOperator> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongUnaryOperatorTest() {
 		super(lambda -> {
 			return lambda.applyAsLong(31337L) == 31337L;

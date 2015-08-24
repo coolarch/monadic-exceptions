@@ -28,11 +28,25 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.ToDoubleBiFunction;
 
+/**
+ * @param <T>
+ * @param <U>
+ */
 @FunctionalInterface
 public interface ThrowableToDoubleBiFunction<T, U> {
 
+	/**
+	 * @param t
+	 * @param u
+	 * @return
+	 * @throws Exception
+	 */
 	double applyAsDouble(T t, U u) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T, U> ToDoubleBiFunction<T, U> asToDoubleBiFunction(final ThrowableToDoubleBiFunction<T, U> function) {
 		return (t, u) -> {
 			double result;

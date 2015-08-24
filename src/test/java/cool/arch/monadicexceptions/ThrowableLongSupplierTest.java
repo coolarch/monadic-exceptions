@@ -31,8 +31,14 @@ import java.util.function.LongSupplier;
 
 import cool.arch.monadicexceptions.ThrowableLongSupplier;
 
+/**
+ * 
+ */
 public class ThrowableLongSupplierTest extends AbstractLambdaTest<ThrowableLongSupplier, LongSupplier> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongSupplierTest() {
 		super(lambda -> {
 			return lambda.getAsLong() == 31337L;

@@ -36,17 +36,26 @@ import com.google.common.util.concurrent.AtomicDouble;
 
 import cool.arch.monadicexceptions.ThrowableObjDoubleConsumer;
 
+/**
+ * 
+ */
 public class ThrowableObjDoubleConsumerTest extends AbstractLambdaTest<ThrowableObjDoubleConsumer<String>, ObjDoubleConsumer<String>> {
 
 	private static final AtomicReference<String> param0 = new AtomicReference<>();
 
 	private static final AtomicDouble param1 = new AtomicDouble();
 
+	/**
+	 * 
+	 */
 	@Before
 	public void setup() {
 		param0.set(null);
 	}
 
+	/**
+	 * 
+	 */
 	public ThrowableObjDoubleConsumerTest() {
 		super(lambda -> {
 			lambda.accept("1.5", 1.5D);

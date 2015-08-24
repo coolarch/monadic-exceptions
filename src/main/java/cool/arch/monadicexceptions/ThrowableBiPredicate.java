@@ -28,11 +28,25 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.BiPredicate;
 
+/**
+ * @param <T>
+ * @param <U>
+ */
 @FunctionalInterface
 public interface ThrowableBiPredicate<T, U> {
 
+	/**
+	 * @param t
+	 * @param u
+	 * @return
+	 * @throws Exception
+	 */
 	boolean test(T t, U u) throws Exception;
 
+	/**
+	 * @param predicate
+	 * @return
+	 */
 	public static <T, U> BiPredicate<T, U> asBiPredicate(final ThrowableBiPredicate<T, U> predicate) {
 		return (t, u) -> {
 			boolean result = false;

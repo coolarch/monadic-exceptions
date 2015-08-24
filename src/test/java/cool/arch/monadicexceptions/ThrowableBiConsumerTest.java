@@ -33,18 +33,27 @@ import org.junit.Before;
 
 import cool.arch.monadicexceptions.ThrowableBiConsumer;
 
+/**
+ * 
+ */
 public class ThrowableBiConsumerTest extends AbstractLambdaTest<ThrowableBiConsumer<String, String>, BiConsumer<String, String>> {
 
 	private static final AtomicReference<String> captured0 = new AtomicReference<>();
 
 	private static final AtomicReference<String> captured1 = new AtomicReference<>();
 
+	/**
+	 * 
+	 */
 	@Before
 	public void setup() {
 		captured0.set(null);
 		captured1.set(null);
 	}
 
+	/**
+	 * 
+	 */
 	public ThrowableBiConsumerTest() {
 		super(lambda -> {
 			lambda.accept("foo", "bar");

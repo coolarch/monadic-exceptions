@@ -28,11 +28,22 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleConsumer;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoubleConsumer {
 
+	/**
+	 * @param value
+	 * @throws Exception
+	 */
 	void accept(double value) throws Exception;
 
+	/**
+	 * @param consumer
+	 * @return
+	 */
 	public static DoubleConsumer asDoubleConsumer(final ThrowableDoubleConsumer consumer) {
 		return d -> {
 			try {

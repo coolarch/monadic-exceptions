@@ -31,8 +31,14 @@ import java.util.function.IntToDoubleFunction;
 
 import cool.arch.monadicexceptions.ThrowableIntToDoubleFunction;
 
+/**
+ * 
+ */
 public class ThrowableIntToDoubleFunctionTest extends AbstractLambdaTest<ThrowableIntToDoubleFunction, IntToDoubleFunction> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntToDoubleFunctionTest() {
 		super(lambda -> {
 			return lambda.applyAsDouble(3) == 3.0D;

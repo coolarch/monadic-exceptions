@@ -31,8 +31,14 @@ import java.util.function.BooleanSupplier;
 
 import cool.arch.monadicexceptions.ThrowableBooleanSupplier;
 
+/**
+ * 
+ */
 public class ThrowableBooleanSupplierTest extends AbstractLambdaTest<ThrowableBooleanSupplier, BooleanSupplier> {
 
+	/**
+	 * 
+	 */
 	public ThrowableBooleanSupplierTest() {
 		super(lambda -> {
 			return lambda.getAsBoolean();

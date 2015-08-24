@@ -31,8 +31,14 @@ import java.util.function.LongConsumer;
 
 import cool.arch.monadicexceptions.ThrowableLongConsumer;
 
+/**
+ * 
+ */
 public class ThrowableLongConsumerTest extends AbstractLambdaTest<ThrowableLongConsumer, LongConsumer> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongConsumerTest() {
 		super(lambda -> {
 			lambda.accept(31337L);

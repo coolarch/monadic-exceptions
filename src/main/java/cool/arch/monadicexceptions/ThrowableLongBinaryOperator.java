@@ -28,11 +28,24 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.LongBinaryOperator;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableLongBinaryOperator {
 
+	/**
+	 * @param left
+	 * @param right
+	 * @return
+	 * @throws Exception
+	 */
 	long applyAsLong(long left, long right) throws Exception;
 
+	/**
+	 * @param operator
+	 * @return
+	 */
 	public static LongBinaryOperator asLongBinaryOperator(final ThrowableLongBinaryOperator operator) {
 		return (t, u) -> {
 			long result;

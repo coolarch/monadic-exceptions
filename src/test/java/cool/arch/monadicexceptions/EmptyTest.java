@@ -79,6 +79,7 @@ public class EmptyTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Empty#ifPresent(java.util.function.Consumer)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testIfPresent() throws Exception {
@@ -94,6 +95,7 @@ public class EmptyTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Empty#map(java.util.function.Function)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testMap() throws Exception {

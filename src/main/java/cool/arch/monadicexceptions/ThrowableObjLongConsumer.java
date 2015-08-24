@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.ObjLongConsumer;
 
+/**
+ * @param <T>
+ */
 @FunctionalInterface
 public interface ThrowableObjLongConsumer<T> {
 
+	/**
+	 * @param t
+	 * @param value
+	 * @throws Exception
+	 */
 	void accept(T t, long value) throws Exception;
 
+	/**
+	 * @param consumer
+	 * @return
+	 */
 	public static <T> ObjLongConsumer<T> asObjLongConsumer(final ThrowableObjLongConsumer<T> consumer) {
 		return (o, l) -> {
 			try {

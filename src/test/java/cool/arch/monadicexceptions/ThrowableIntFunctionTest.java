@@ -31,8 +31,14 @@ import java.util.function.IntFunction;
 
 import cool.arch.monadicexceptions.ThrowableIntFunction;
 
+/**
+ * 
+ */
 public class ThrowableIntFunctionTest extends AbstractLambdaTest<ThrowableIntFunction<String>, IntFunction<String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntFunctionTest() {
 		super(lambda -> "31337".equals(lambda.apply(31337)), ThrowableIntFunction::asIntFunction, s -> {
 			throw new IOException();

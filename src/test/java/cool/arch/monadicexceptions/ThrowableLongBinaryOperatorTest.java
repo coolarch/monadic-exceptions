@@ -31,8 +31,14 @@ import java.util.function.LongBinaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableLongBinaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableLongBinaryOperatorTest extends AbstractLambdaTest<ThrowableLongBinaryOperator, LongBinaryOperator> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongBinaryOperatorTest() {
 		super(lambda -> lambda.applyAsLong(1, 2) == 3, ThrowableLongBinaryOperator::asLongBinaryOperator, (t, u) -> {
 			throw new IOException();

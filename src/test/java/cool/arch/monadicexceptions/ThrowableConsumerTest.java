@@ -34,15 +34,24 @@ import org.junit.Before;
 
 import cool.arch.monadicexceptions.ThrowableConsumer;
 
+/**
+ * 
+ */
 public class ThrowableConsumerTest extends AbstractLambdaTest<ThrowableConsumer<String>, Consumer<String>> {
 
 	private static final AtomicReference<String> captured = new AtomicReference<>();
 
+	/**
+	 * 
+	 */
 	@Before
 	public void setup() {
 		captured.set(null);
 	}
 
+	/**
+	 * 
+	 */
 	public ThrowableConsumerTest() {
 		super(lambda -> {
 			lambda.accept("foo");

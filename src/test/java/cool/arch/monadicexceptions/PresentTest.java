@@ -40,6 +40,7 @@ public class PresentTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Present#ifPresent(java.util.function.Consumer)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testIfPresent() throws Exception {
@@ -56,6 +57,7 @@ public class PresentTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Present#ifPresent(java.util.function.Consumer)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testIfPresent_nullConsumer() throws Exception {
@@ -68,6 +70,7 @@ public class PresentTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Present#filter(java.util.function.Predicate)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testFilter() throws Exception {
@@ -79,6 +82,7 @@ public class PresentTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Present#thenThrow()}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testThenThrow() throws Exception {
@@ -97,6 +101,7 @@ public class PresentTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Present#map(java.util.function.Function)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testMap_nullFunction() throws Exception {
@@ -108,6 +113,7 @@ public class PresentTest {
 
 	/**
 	 * Test method for {@link cool.arch.monadicexceptions.Present#map(java.util.function.Function)}.
+	 * @throws Exception 
 	 */
 	@Test
 	public void testMap() throws Exception {
@@ -116,8 +122,10 @@ public class PresentTest {
 		final Monad<Exception> result = monad.map(e -> new Exception("from function", e));
 
 		assertEquals(Present.class, result.getClass());
+
 		assertSame(innerException, result.get()
 			.getCause());
+
 		assertEquals("from function", result.get()
 			.getMessage());
 	}

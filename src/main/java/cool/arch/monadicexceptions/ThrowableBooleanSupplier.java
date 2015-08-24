@@ -28,11 +28,22 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.BooleanSupplier;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableBooleanSupplier {
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	boolean getAsBoolean() throws Exception;
 
+	/**
+	 * @param supplier
+	 * @return
+	 */
 	public static BooleanSupplier asBooleanSupplier(final ThrowableBooleanSupplier supplier) {
 		return () -> {
 			boolean result;

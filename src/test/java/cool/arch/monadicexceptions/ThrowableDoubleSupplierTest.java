@@ -31,8 +31,14 @@ import java.util.function.DoubleSupplier;
 
 import cool.arch.monadicexceptions.ThrowableDoubleSupplier;
 
+/**
+ * 
+ */
 public class ThrowableDoubleSupplierTest extends AbstractLambdaTest<ThrowableDoubleSupplier, DoubleSupplier> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoubleSupplierTest() {
 		super(lambda -> lambda.getAsDouble() == 31337D, ThrowableDoubleSupplier::asDoubleSupplier, () -> {
 			throw new IOException();

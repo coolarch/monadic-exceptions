@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.IntToLongFunction;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableIntToLongFunction {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	long applyAsLong(int value) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static IntToLongFunction asIntToLongFunction(final ThrowableIntToLongFunction function) {
 		return t -> {
 			long result;

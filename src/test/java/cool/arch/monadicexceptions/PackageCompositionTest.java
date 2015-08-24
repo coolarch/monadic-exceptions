@@ -44,14 +44,19 @@ import org.reflections.util.ConfigurationBuilder;
 
 import cool.arch.monadicexceptions.ThrowableFunction;
 
+/**
+ * 
+ */
 public class PackageCompositionTest {
 
 	private static final String THROWABLE_FUNCTIONAL_INTERFACE_PACKAGE = ThrowableFunction.class.getPackage()
 		.getName();
 
+	/**
+	 * 
+	 */
 	@Test
 	public final void test() {
-		//		assertEquals("java.util.function", FUNCTIONAL_INTERFACE_PACKAGE);
 		assertEquals("cool.arch.monadicexceptions", THROWABLE_FUNCTIONAL_INTERFACE_PACKAGE);
 
 		final Set<String> expectedFunctionalInterfaceNames = new HashSet<>(asList("BiConsumer", "BiFunction", "BinaryOperator", "BiPredicate", "BooleanSupplier", "Consumer", "DoubleBinaryOperator",
@@ -59,8 +64,6 @@ public class PackageCompositionTest {
 			"IntConsumer", "IntFunction", "IntPredicate", "IntSupplier", "IntToDoubleFunction", "IntToLongFunction", "IntUnaryOperator", "LongBinaryOperator", "LongConsumer", "LongFunction",
 			"LongPredicate", "LongSupplier", "LongToDoubleFunction", "LongToIntFunction", "LongUnaryOperator", "ObjDoubleConsumer", "ObjIntConsumer", "ObjLongConsumer", "Predicate", "Supplier",
 			"ToDoubleBiFunction", "ToDoubleFunction", "ToIntBiFunction", "ToIntFunction", "ToLongBiFunction", "ToLongFunction", "UnaryOperator"));
-
-		//		expectedFunctionalInterfaceNames.forEach(System.out::println);
 
 		final Set<String> ourInterfacesAndTestNames = new Reflections(new ConfigurationBuilder().setUrls(ClasspathHelper.forPackage(THROWABLE_FUNCTIONAL_INTERFACE_PACKAGE))
 			.setScanners(new ResourcesScanner())).getResources(Pattern.compile(".*\\.class"))

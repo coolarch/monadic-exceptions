@@ -31,8 +31,14 @@ import java.util.function.ToIntFunction;
 
 import cool.arch.monadicexceptions.ThrowableToIntFunction;
 
+/**
+ * 
+ */
 public class ThrowableToIntFunctionTest extends AbstractLambdaTest<ThrowableToIntFunction<String>, ToIntFunction<String>> {
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("boxing")
 	public ThrowableToIntFunctionTest() {
 		super(lambda -> lambda.applyAsInt("123") == 123, ThrowableToIntFunction::asToIntFunction, s -> {

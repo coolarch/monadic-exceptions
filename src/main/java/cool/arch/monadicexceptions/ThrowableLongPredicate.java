@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.LongPredicate;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableLongPredicate {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	boolean test(long value) throws Exception;
 
+	/**
+	 * @param predicate
+	 * @return
+	 */
 	public static LongPredicate asLongPredicate(final ThrowableLongPredicate predicate) {
 		return t -> {
 			boolean result = false;

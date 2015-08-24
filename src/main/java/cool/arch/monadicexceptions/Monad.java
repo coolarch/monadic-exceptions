@@ -30,19 +30,47 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+/**
+ * @param <T>
+ */
 public interface Monad<T extends Throwable> {
 
+	/**
+	 * @throws T
+	 */
 	void thenThrow() throws T;
 
+	/**
+	 * @param mapper
+	 * @return
+	 */
 	<E extends Throwable> Monad<E> map(Function<? super T, ? extends E> mapper);
 
+	/**
+	 * @param throwableClass
+	 * @return
+	 */
 	<E extends Throwable> Monad<E> unwrapAs(Class<? extends E> throwableClass);
 
+	/**
+	 * @return
+	 */
 	boolean isPresent();
 
+	/**
+	 * @param consumer
+	 * @return
+	 */
 	Monad<T> ifPresent(Consumer<? super T> consumer);
 
+	/**
+	 * @param predicate
+	 * @return
+	 */
 	Monad<T> filter(Predicate<? super T> predicate);
 
+	/**
+	 * @return
+	 */
 	T get();
 }

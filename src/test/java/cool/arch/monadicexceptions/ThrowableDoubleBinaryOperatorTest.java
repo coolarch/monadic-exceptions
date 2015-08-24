@@ -31,8 +31,14 @@ import java.util.function.DoubleBinaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableDoubleBinaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableDoubleBinaryOperatorTest extends AbstractLambdaTest<ThrowableDoubleBinaryOperator, DoubleBinaryOperator> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoubleBinaryOperatorTest() {
 		super(lambda -> {
 			return lambda.applyAsDouble(1.23D, 4.56D) == (1.23D + 4.56D);

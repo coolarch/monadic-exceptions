@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.ObjIntConsumer;
 
+/**
+ * @param <T>
+ */
 @FunctionalInterface
 public interface ThrowableObjIntConsumer<T> {
 
+	/**
+	 * @param t
+	 * @param value
+	 * @throws Exception
+	 */
 	void accept(T t, int value) throws Exception;
 
+	/**
+	 * @param consumer
+	 * @return
+	 */
 	public static <T> ObjIntConsumer<T> asObjIntConsumer(final ThrowableObjIntConsumer<T> consumer) {
 		return (o, l) -> {
 			try {

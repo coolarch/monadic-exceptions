@@ -31,8 +31,14 @@ import java.util.function.IntUnaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableIntUnaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableIntUnaryOperatorTest extends AbstractLambdaTest<ThrowableIntUnaryOperator, IntUnaryOperator> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntUnaryOperatorTest() {
 		super(lambda -> {
 			return lambda.applyAsInt(31337) == 31337;

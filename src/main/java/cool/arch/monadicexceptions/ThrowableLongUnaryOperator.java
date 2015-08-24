@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.LongUnaryOperator;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableLongUnaryOperator {
 
+	/**
+	 * @param operand
+	 * @return
+	 * @throws Exception
+	 */
 	long applyAsLong(long operand) throws Exception;
 
+	/**
+	 * @param operator
+	 * @return
+	 */
 	public static LongUnaryOperator asLongUnaryOperator(final ThrowableLongUnaryOperator operator) {
 		return t -> {
 			long result;

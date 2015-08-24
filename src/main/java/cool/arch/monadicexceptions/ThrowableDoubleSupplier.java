@@ -28,11 +28,22 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleSupplier;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoubleSupplier {
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	double getAsDouble() throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static DoubleSupplier asDoubleSupplier(final ThrowableDoubleSupplier function) {
 		return () -> {
 			double result;

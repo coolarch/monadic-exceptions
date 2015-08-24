@@ -31,8 +31,14 @@ import java.util.function.DoubleFunction;
 
 import cool.arch.monadicexceptions.ThrowableDoubleFunction;
 
+/**
+ * 
+ */
 public class ThrowableDoubleFunctionTest extends AbstractLambdaTest<ThrowableDoubleFunction<String>, DoubleFunction<String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoubleFunctionTest() {
 		super(lambda -> "31.337".equals(lambda.apply(31.337)), ThrowableDoubleFunction::asDoubleFunction, d -> {
 			throw new IOException();

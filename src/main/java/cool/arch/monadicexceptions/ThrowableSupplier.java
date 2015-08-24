@@ -28,11 +28,22 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.Supplier;
 
+/**
+ * @param <T>
+ */
 @FunctionalInterface
 public interface ThrowableSupplier<T> {
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	T get() throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <R> Supplier<R> asSupplier(final ThrowableSupplier<R> function) {
 		return () -> {
 			R result = null;

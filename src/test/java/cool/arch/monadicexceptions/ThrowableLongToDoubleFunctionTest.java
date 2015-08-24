@@ -31,8 +31,14 @@ import java.util.function.LongToDoubleFunction;
 
 import cool.arch.monadicexceptions.ThrowableLongToDoubleFunction;
 
+/**
+ * 
+ */
 public class ThrowableLongToDoubleFunctionTest extends AbstractLambdaTest<ThrowableLongToDoubleFunction, LongToDoubleFunction> {
 
+	/**
+	 * 
+	 */
 	public ThrowableLongToDoubleFunctionTest() {
 		super(lambda -> {
 			return lambda.applyAsDouble(31337L) == 31337.0D;

@@ -28,11 +28,25 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.ToIntBiFunction;
 
+/**
+ * @param <T>
+ * @param <U>
+ */
 @FunctionalInterface
 public interface ThrowableToIntBiFunction<T, U> {
 
+	/**
+	 * @param t
+	 * @param u
+	 * @return
+	 * @throws Exception
+	 */
 	int applyAsInt(T t, U u) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T, U> ToIntBiFunction<T, U> asToIntBiFunction(final ThrowableToIntBiFunction<T, U> function) {
 		return (t, u) -> {
 			int result;

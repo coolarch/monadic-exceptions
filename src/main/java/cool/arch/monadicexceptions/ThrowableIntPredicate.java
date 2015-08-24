@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.IntPredicate;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableIntPredicate {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	boolean test(int value) throws Exception;
 
+	/**
+	 * @param predicate
+	 * @return
+	 */
 	public static IntPredicate asIntPredicate(final ThrowableIntPredicate predicate) {
 		return t -> {
 			boolean result = false;

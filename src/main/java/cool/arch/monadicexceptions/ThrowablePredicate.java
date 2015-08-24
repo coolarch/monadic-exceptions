@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.Predicate;
 
+/**
+ * @param <T>
+ */
 @FunctionalInterface
 public interface ThrowablePredicate<T> {
 
+	/**
+	 * @param t
+	 * @return
+	 * @throws Exception
+	 */
 	boolean test(T t) throws Exception;
 
+	/**
+	 * @param predicate
+	 * @return
+	 */
 	public static <T> Predicate<T> asPredicate(final ThrowablePredicate<T> predicate) {
 		return t -> {
 			boolean result = false;

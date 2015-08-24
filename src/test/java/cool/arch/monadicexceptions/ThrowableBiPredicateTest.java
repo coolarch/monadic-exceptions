@@ -31,8 +31,14 @@ import java.util.function.BiPredicate;
 
 import cool.arch.monadicexceptions.ThrowableBiPredicate;
 
+/**
+ * 
+ */
 public class ThrowableBiPredicateTest extends AbstractLambdaTest<ThrowableBiPredicate<String, String>, BiPredicate<String, String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableBiPredicateTest() {
 		super(lambda -> {
 			return lambda.test("foo", "foo");

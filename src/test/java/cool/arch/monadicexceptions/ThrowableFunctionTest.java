@@ -35,14 +35,23 @@ import java.util.stream.IntStream;
 
 import org.junit.Test;
 
+/**
+ * 
+ */
 public class ThrowableFunctionTest extends AbstractLambdaTest<ThrowableFunction<String, String>, Function<String, String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableFunctionTest() {
 		super(lambda -> "foo".equals(lambda.apply("foo")), ThrowableFunction::asFunction, s -> {
 			throw new IOException();
 		} , s -> s);
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testStreamThrow() {
 		String result = null;

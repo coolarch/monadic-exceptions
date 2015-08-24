@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleFunction;
 
+/**
+ * @param <R>
+ */
 @FunctionalInterface
 public interface ThrowableDoubleFunction<R> {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	R apply(double value) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <R> DoubleFunction<R> asDoubleFunction(final ThrowableDoubleFunction<R> function) {
 		return t -> {
 			R result = null;

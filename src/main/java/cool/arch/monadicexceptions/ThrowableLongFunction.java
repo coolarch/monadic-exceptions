@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.LongFunction;
 
+/**
+ * @param <R>
+ */
 @FunctionalInterface
 public interface ThrowableLongFunction<R> {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	R apply(long value) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <R> LongFunction<R> asLongFunction(final ThrowableLongFunction<R> function) {
 		return t -> {
 			R result = null;

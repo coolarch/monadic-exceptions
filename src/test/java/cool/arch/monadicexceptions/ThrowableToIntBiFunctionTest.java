@@ -31,8 +31,14 @@ import java.util.function.ToIntBiFunction;
 
 import cool.arch.monadicexceptions.ThrowableToIntBiFunction;
 
+/**
+ * 
+ */
 public class ThrowableToIntBiFunctionTest extends AbstractLambdaTest<ThrowableToIntBiFunction<String, String>, ToIntBiFunction<String, String>> {
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("boxing")
 	public ThrowableToIntBiFunctionTest() {
 		super(lambda -> lambda.applyAsInt("123", "456") == (123 + 456), ThrowableToIntBiFunction::asToIntBiFunction, (t, u) -> {

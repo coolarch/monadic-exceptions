@@ -31,8 +31,14 @@ import java.util.function.IntSupplier;
 
 import cool.arch.monadicexceptions.ThrowableIntSupplier;
 
+/**
+ * 
+ */
 public class ThrowableIntSupplierTest extends AbstractLambdaTest<ThrowableIntSupplier, IntSupplier> {
 
+	/**
+	 * 
+	 */
 	public ThrowableIntSupplierTest() {
 		super(lambda -> {
 			return lambda.getAsInt() == 31337;

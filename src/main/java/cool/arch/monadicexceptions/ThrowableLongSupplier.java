@@ -28,11 +28,22 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.LongSupplier;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableLongSupplier {
 
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	long getAsLong() throws Exception;
 
+	/**
+	 * @param supplier
+	 * @return
+	 */
 	public static LongSupplier asLongSupplier(final ThrowableLongSupplier supplier) {
 		return () -> {
 			long result;

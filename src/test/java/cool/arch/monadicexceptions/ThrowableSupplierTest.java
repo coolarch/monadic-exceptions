@@ -31,8 +31,14 @@ import java.util.function.Supplier;
 
 import cool.arch.monadicexceptions.ThrowableSupplier;
 
+/**
+ * 
+ */
 public class ThrowableSupplierTest extends AbstractLambdaTest<ThrowableSupplier<String>, Supplier<String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableSupplierTest() {
 		super(lambda -> "foo".equals(lambda.get()), ThrowableSupplier::asSupplier, () -> {
 			throw new IOException();

@@ -28,8 +28,15 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.UnaryOperator;
 
+/**
+ * @param <T>
+ */
 public interface ThrowableUnaryOperator<T> extends ThrowableFunction<T, T> {
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T> UnaryOperator<T> asUnaryOperator(final ThrowableUnaryOperator<T> function) {
 		return t -> {
 			T result = null;

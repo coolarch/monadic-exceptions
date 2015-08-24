@@ -45,6 +45,10 @@ import org.junit.Test;
 
 import cool.arch.monadicexceptions.MonadicException;
 
+/**
+ * @param <TF>
+ * @param <F>
+ */
 public abstract class AbstractLambdaTest<TF, F> {
 
 	private final Predicate<F> predicate;
@@ -62,6 +66,9 @@ public abstract class AbstractLambdaTest<TF, F> {
 		this.identity = requireNonNull(identity, "identity shall not be null");
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public final void testTypes() {
 		final String simpleClassName = getClass().getSimpleName();
@@ -85,6 +92,10 @@ public abstract class AbstractLambdaTest<TF, F> {
 		assertEquals(expectedLambdaName, simplifiedActualParameterName1);
 	}
 
+	/**
+	 * @throws SecurityException
+	 * @throws ClassNotFoundException
+	 */
 	@Test
 	public final void testWrapperMethods() throws SecurityException, ClassNotFoundException {
 		final Type[] types = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments();
@@ -109,6 +120,9 @@ public abstract class AbstractLambdaTest<TF, F> {
 		assertNotNull(method);
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public final void testExceptionThrown() {
 		try {
@@ -122,6 +136,9 @@ public abstract class AbstractLambdaTest<TF, F> {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public final void testExceptionNotThrown() {
 		assertTrue(predicate.test(invoker.apply(identity)));

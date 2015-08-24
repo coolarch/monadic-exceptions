@@ -28,8 +28,15 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.BinaryOperator;
 
+/**
+ * @param <T>
+ */
 public interface ThrowableBinaryOperator<T> extends ThrowableBiFunction<T, T, T> {
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static <T> BinaryOperator<T> asBinaryOperator(final ThrowableBinaryOperator<T> function) {
 		return (t, u) -> {
 			T result = null;

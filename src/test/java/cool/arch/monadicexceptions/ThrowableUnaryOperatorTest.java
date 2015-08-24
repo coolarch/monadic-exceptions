@@ -34,8 +34,14 @@ import java.util.function.UnaryOperator;
 
 import cool.arch.monadicexceptions.ThrowableUnaryOperator;
 
+/**
+ * 
+ */
 public class ThrowableUnaryOperatorTest extends AbstractLambdaTest<ThrowableUnaryOperator<String>, UnaryOperator<String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableUnaryOperatorTest() {
 		super(lambda -> "foo".equals(lambda.apply("foo")), ThrowableUnaryOperator::asUnaryOperator, s -> {
 			throw new IOException();

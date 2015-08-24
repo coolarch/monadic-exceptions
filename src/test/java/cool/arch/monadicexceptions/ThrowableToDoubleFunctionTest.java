@@ -31,8 +31,14 @@ import java.util.function.ToDoubleFunction;
 
 import cool.arch.monadicexceptions.ThrowableToDoubleFunction;
 
+/**
+ * 
+ */
 public class ThrowableToDoubleFunctionTest extends AbstractLambdaTest<ThrowableToDoubleFunction<String>, ToDoubleFunction<String>> {
 
+	/**
+	 * 
+	 */
 	@SuppressWarnings("boxing")
 	public ThrowableToDoubleFunctionTest() {
 		super(lambda -> lambda.applyAsDouble("1.5") == 1.5, ThrowableToDoubleFunction::asToDoubleFunction, s -> {

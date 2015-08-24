@@ -31,8 +31,14 @@ import java.util.function.BiFunction;
 
 import cool.arch.monadicexceptions.ThrowableBiFunction;
 
+/**
+ * 
+ */
 public class ThrowableBiFunctionTest extends AbstractLambdaTest<ThrowableBiFunction<String, String, String>, BiFunction<String, String, String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowableBiFunctionTest() {
 		super(lambda -> "foobar".equals(lambda.apply("foo", "bar")), ThrowableBiFunction::asBiFunction, (t, u) -> {
 			throw new IOException();

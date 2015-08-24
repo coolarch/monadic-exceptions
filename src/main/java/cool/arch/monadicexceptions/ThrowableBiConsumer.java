@@ -28,11 +28,24 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.BiConsumer;
 
+/**
+ * @param <T>
+ * @param <U>
+ */
 @FunctionalInterface
 public interface ThrowableBiConsumer<T, U> {
 
+	/**
+	 * @param t
+	 * @param u
+	 * @throws Exception
+	 */
 	void accept(T t, U u) throws Exception;
 
+	/**
+	 * @param consumer
+	 * @return
+	 */
 	public static <T, U> BiConsumer<T, U> asBiConsumer(final ThrowableBiConsumer<T, U> consumer) {
 		return (t, u) -> {
 			try {

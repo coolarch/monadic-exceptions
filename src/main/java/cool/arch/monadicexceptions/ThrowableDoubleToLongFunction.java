@@ -28,11 +28,23 @@ package cool.arch.monadicexceptions;
 
 import java.util.function.DoubleToLongFunction;
 
+/**
+ * 
+ */
 @FunctionalInterface
 public interface ThrowableDoubleToLongFunction {
 
+	/**
+	 * @param value
+	 * @return
+	 * @throws Exception
+	 */
 	long applyAsLong(double value) throws Exception;
 
+	/**
+	 * @param function
+	 * @return
+	 */
 	public static DoubleToLongFunction asDoubleToLongFunction(final ThrowableDoubleToLongFunction function) {
 		return t -> {
 			long result;

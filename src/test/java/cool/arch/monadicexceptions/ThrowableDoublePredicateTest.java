@@ -31,8 +31,14 @@ import java.util.function.DoublePredicate;
 
 import cool.arch.monadicexceptions.ThrowableDoublePredicate;
 
+/**
+ * 
+ */
 public class ThrowableDoublePredicateTest extends AbstractLambdaTest<ThrowableDoublePredicate, DoublePredicate> {
 
+	/**
+	 * 
+	 */
 	public ThrowableDoublePredicateTest() {
 		super(lambda -> lambda.test(3133.7D), ThrowableDoublePredicate::asDoublePredicate, d -> {
 			throw new IOException();

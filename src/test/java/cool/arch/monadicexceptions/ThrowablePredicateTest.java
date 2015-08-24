@@ -31,8 +31,14 @@ import java.util.function.Predicate;
 
 import cool.arch.monadicexceptions.ThrowablePredicate;
 
+/**
+ * 
+ */
 public class ThrowablePredicateTest extends AbstractLambdaTest<ThrowablePredicate<String>, Predicate<String>> {
 
+	/**
+	 * 
+	 */
 	public ThrowablePredicateTest() {
 		super(lambda -> lambda.test("foo"), ThrowablePredicate::asPredicate, s -> {
 			throw new IOException();

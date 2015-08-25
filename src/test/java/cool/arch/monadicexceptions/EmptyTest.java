@@ -94,7 +94,7 @@ public class EmptyTest {
 	}
 
 	/**
-	 * Test method for {@link cool.arch.monadicexceptions.Empty#map(java.util.function.Function)}.
+	 * Test method for cool.arch.monadicexceptions.Empty#map(java.util.function.Function).
 	 * @throws Exception 
 	 */
 	@Test

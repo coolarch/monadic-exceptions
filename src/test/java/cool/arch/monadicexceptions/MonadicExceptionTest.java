@@ -78,7 +78,8 @@ public class MonadicExceptionTest {
 		assertFalse(result);
 	}
 
-	@Test(expected=InstantiationException.class)
+	@Test(
+		expected = InstantiationException.class)
 	public void testWrappedAndThrowException() throws Exception {
 		try {
 			Optional.ofNullable(List.class)

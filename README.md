@@ -17,3 +17,13 @@ try {
 ```
 
 See cool.arch.monadicexceptions.MonadicExceptionTest#testWrappedAndThrowException for a full in-context example.
+
+Maven artifact:
+
+```xml
+<dependency>
+    <groupId>cool.arch.monadicexceptions</groupId>
+    <artifactId>monadic-exceptions</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```

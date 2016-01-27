@@ -29,20 +29,22 @@ package cool.arch.monadicexceptions;
 import java.util.function.ToIntFunction;
 
 /**
- * @param <T>
+ * 
+ * @param <T> the type of the input to the function
  */
 @FunctionalInterface
 public interface ThrowableToIntFunction<T> {
 
 	/**
-	 * @param value
+	 * Applies the wrapped function to the given argument.
+	 * @param value value the function argument
 	 * @return
 	 * @throws Exception
 	 */
 	int applyAsInt(T value) throws Exception;
 
 	/**
-	 * @param function
+	 * @param function Function to wrap with exception handling
 	 * @return
 	 */
 	public static <T> ToIntFunction<T> asToIntFunction(final ThrowableToIntFunction<T> function) {
@@ -51,7 +53,7 @@ public interface ThrowableToIntFunction<T> {
 
 			try {
 				result = function.applyAsInt(t);
-			} catch (Exception e) {
+			} catch (final Exception e) {
 				throw new MonadicException(e);
 			}
 

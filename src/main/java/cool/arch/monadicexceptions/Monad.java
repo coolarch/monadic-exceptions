@@ -58,8 +58,9 @@ public interface Monad<T extends Throwable> {
 	boolean isPresent();
 
 	/**
-	 * @param consumer
-	 * @return
+	 * If a value is present, invoke the specified consumer with the value, otherwise do nothing.
+	 * @param consumer block to be executed if a value is present
+	 * @return Monad instance on which the method was called
 	 */
 	Monad<T> ifPresent(Consumer<? super T> consumer);
 

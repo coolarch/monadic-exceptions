@@ -1,5 +1,9 @@
 package cool.arch.monadicexceptions;
 
+import cool.arch.monadicexceptions.ThrowableFunction;
+
+import static cool.arch.monadicexceptions.ThrowableFunction.asFunction;
+
 /*
  * @formatter:off
  * cool.arch.monadicexceptions:monadic-exceptions
@@ -29,6 +33,9 @@ package cool.arch.monadicexceptions;
 import static org.junit.Assert.assertFalse;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -72,5 +79,19 @@ public class MonadicExceptionTest {
 			.isPresent();
 
 		assertFalse(result);
+	}
+
+	@Test(expected=InstantiationException.class)
+	public void testWrappedAndThrowException() throws Exception {
+		try {
+			Optional.ofNullable(List.class)
+				.map(asFunction(Class::newInstance));
+		} catch (final MonadicException e) {
+			e.when(NullPointerException.class)
+				.thenThrow();
+			e.when(InstantiationException.class)
+				.ifPresent(Throwable::printStackTrace)
+				.thenThrow();
+		}
 	}
 }

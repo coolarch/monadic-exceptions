@@ -1,7 +1,5 @@
 package cool.arch.monadicexceptions;
 
-import cool.arch.monadicexceptions.ThrowableFunction;
-
 import static cool.arch.monadicexceptions.ThrowableFunction.asFunction;
 
 /*
@@ -33,7 +31,6 @@ import static cool.arch.monadicexceptions.ThrowableFunction.asFunction;
 import static org.junit.Assert.assertFalse;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 

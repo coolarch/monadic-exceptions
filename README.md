@@ -1,6 +1,8 @@
 # monadic-exceptions
 Monadic exception to assist in handling use of checked exceptions in Java 8+ functional programming
 
+Example of use:
+
 ```java
 try {
 	Optional.ofNullable(List.class)
@@ -13,3 +15,5 @@ try {
 		.thenThrow();
 }
 ```
+
+See cool.arch.monadicexceptions.MonadicExceptionTest#testWrappedAndThrowException for a full in-context example.
